@@ -70,6 +70,9 @@ function compileCrossword(crosswordDefinition) {
     clueModel.answer = clueDefinition.answer;
     clueModel.x = clueDefinition.x - 1; //  Definitions are 1 based, models are more useful 0 based.
     clueModel.y = clueDefinition.y - 1;
+    clueModel.letter = clueDefinition.letter;
+    clueModel.letterx = clueDefinition.letterx - 1; //  Definitions are 1 based, models are more useful 0 based.
+    clueModel.lettery = clueDefinition.lettery - 1;   
     clueModel.across = across;
     clueModel.cells = [];
     clueModel.clueLabel = `${clueModel.number}.`;
@@ -120,6 +123,15 @@ function compileCrossword(crosswordDefinition) {
           throw new Error(`Clue ${clueModel.code} has a label which is inconsistent with another clue (${cell.acrossClue.code}).`);
         }
         cell.clueLabel = clueModel.number;
+      }
+
+      if(clueModel.letter){
+        console.log("clueModel.letter %s", clueModel.letter)
+        if(x === clueModel.letterx && y === clueModel.lettery){
+          cell.letterLabel = clueModel.letter;
+          console.log("cclueModel.letterx  %d", clueModel.letterx)
+          console.log("cclueModel.lettery  %d", clueModel.lettery)
+        }
       }
 
       if (across) {

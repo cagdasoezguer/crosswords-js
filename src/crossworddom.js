@@ -119,6 +119,15 @@ CrosswordDOM.prototype._createCellDOM = function _createCellDOM(document, cell) 
     cellElement.appendChild(clueLabel);
   }
 
+    //  We may need to add a clue label.
+  if (cell.letterLabel) {
+    console.log("cell.letterLabel %s", cell.letterLabel)
+    const letterLabel = document.createElement('div');
+    letterLabel.className = 'cwletterlabel';
+    letterLabel.innerHTML = cell.letterLabel;
+    cellElement.appendChild(letterLabel);
+  }
+
   //  Check to see whether we need to add an across clue answer segment terminator.
   if (cell.acrossTerminator === ',') {
     inputElement.className += ' cw-across-word-separator';

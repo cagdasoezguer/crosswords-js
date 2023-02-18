@@ -102,7 +102,10 @@
     },
     {
       "x": 12, "y": 11,
-      "clue": "25. Student priest in Guanaco (5)"
+      "clue": "25. Student priest in Guanaco (5)",
+      "letter": "A",
+      "letterx": 12,
+      "lettery": 12
     }
   ]
 }
